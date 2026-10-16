@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { Character } from './Character.js';
-import { World, LANES } from './World.js';
+import { World, LANES } from './world.js';
 
 /**
  * Lightweight Web Audio Synthesizer so the game has crisp arcade sound effects
