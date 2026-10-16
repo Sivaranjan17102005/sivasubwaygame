@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>A Small Present From Sivaranjan 🎂🎁</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    .font-festive {
+      font-family: 'Fredoka', cursive, sans-serif;
+    }
+
+    /* Ambient Floating Balloons */
+    @keyframes floatUp {
+      0% {
+        transform: translateY(110vh) rotate(0deg);
+        opacity: 0.9;
+      }
+      100% {
+        transform: translateY(-20vh) rotate(15deg);
+        opacity: 0.2;
+      }
+    }
+
+    .balloon-anim {
+      animation: floatUp 14s linear infinite;
+    }
+
+    /* Gift Wobble Animation */
+    @keyframes giftWobble {
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      15% { transform: scale(1.08) rotate(-7deg); }
+      30% { transform: scale(1.08) rotate(7deg); }
+      45% { transform: scale(1.08) rotate(-4deg); }
+      60% { transform: scale(1.08) rotate(4deg); }
+      75% { transform: scale(1.03) rotate(-1deg); }
+    }
+
+    .gift-idle-wobble {
+      animation: gentleFloat 3s ease-in-out infinite;
+    }
+
+    @keyframes gentleFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(1.5deg); }
+    }
+
+    .gift-shake {
+      animation: giftWobble 0.75s ease-in-out;
+    }
+
+    /* Sunburst Golden Rays */
+    @keyframes spinRays {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .sunburst-spin {
+      animation: spinRays 20s linear infinite;
+    }
+
+    /* Pulsing Glow */
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.4; transform: scale(0.95); }
+      50% { opacity: 0.8; transform: scale(1.08); }
+    }
+
+    .glow-pulse {
+      animation: pulseGlow 2.5s ease-in-out infinite;
+    }
+
+    /* Shimmer effect for vouchers and badges */
+    .shimmer-badge {
+      background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.25) 50%, rgba(255,255,255,0) 100%);
+      background-size: 200% 100%;
+      animation: shimmer 3s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    /* Custom Scrollbar hide */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-[#120B1D] text-slate-100 min-h-screen relative overflow-x-hidden flex flex-col justify-between selection:bg-amber-400 selection:text-black">
+
+  <!-- Ambient Background Elements -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <!-- Gradient Orbs -->
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-purple-700/30 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/3 -right-32 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-32 left-1/4 w-96 h-96 bg-pink-600/25 rounded-full blur-3xl"></div>
+
+    <!-- Floating Festive Balloons (SVGs) -->
+    <div class="absolute left-[8%] balloon-anim" style="animation-delay: 0s; animation-duration: 16s;">
+      <svg width="40" height="60" viewBox="0 0 40 60" fill="none">
+        <path d="M20 0C8.95 0 0 10.3 0 23C0 35.7 13.33 46 17 48L15 54H25L23 48C26.67 46 40 35.7 40 23C40 10.3 31.05 0 20 0Z" fill="#F43F5E"/>
+        <path d="M10 12C7 16 6 22 7 26" stroke="white" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+        <path d="M20 54V75" stroke="#F43F5E" stroke-width="1.5" stroke-dasharray="3 3"/>
+      </svg>
+    </div>
+    <div class="absolute left-[78%] balloon-anim" style="animation-delay: 3s; animation-duration: 14s;">
+      <svg width="44" height="66" viewBox="0 0 40 60" fill="none">
+        <path d="M20 0C8.95 0 0 10.3 0 23C0 35.7 13.33 46 17 48L15 54H25L23 48C26.67 46 40 35.7 40 23C40 10.3 31.05 0 20 0Z" fill="#EAB308"/>
+        <path d="M10 12C7 16 6 22 7 26" stroke="white" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+        <path d="M20 54V75" stroke="#EAB308" stroke-width="1.5" stroke-dasharray="3 3"/>
+      </svg>
+    </div>
+    <div class="absolute left-[45%] balloon-anim" style="animation-delay: 7s; animation-duration: 18s;">
+      <svg width="36" height="54" viewBox="0 0 40 60" fill="none">
+        <path d="M20 0C8.95 0 0 10.3 0 23C0 35.7 13.33 46 17 48L15 54H25L23 48C26.67 46 40 35.7 40 23C40 10.3 31.05 0 20 0Z" fill="#8B5CF6"/>
+        <path d="M10 12C7 16 6 22 7 26" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+        <path d="M20 54V75" stroke="#8B5CF6" stroke-width="1.5" stroke-dasharray="3 3"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Top App Navigation / Sound Controls -->
+  <header class="relative z-30 w-full max-w-md mx-auto px-5 pt-4 flex items-center justify-between">
+    <div class="flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/15 px-3 py-1.5 rounded-full shadow-inner">
+      <span class="text-sm">🎂</span>
+      <span class="text-xs font-semibold tracking-wide text-amber-300 uppercase">Sivaranjan's B'Day Special</span>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <!-- Play Subway Runner Link -->
+      <a href="./index.html" class="flex items-center gap-1.5 bg-amber-500/20 hover:bg-amber-500/30 active:scale-95 backdrop-blur-md border border-amber-400/30 px-3 py-1.5 rounded-full text-xs font-semibold text-amber-200 transition duration-200" title="Play Subway Runner">
+        <span>🎮</span>
+        <span>Play Game</span>
+      </a>
+
+      <!-- Sound Toggle Button -->
+      <button id="soundToggleBtn" onclick="toggleSound()" class="flex items-center gap-1.5 bg-white/10 active:bg-white/20 backdrop-blur-md border border-white/15 px-3 py-1.5 rounded-full text-xs font-medium transition duration-200">
+        <i id="soundIcon" data-lucide="volume-2" class="w-4 h-4 text-emerald-400"></i>
+        <span id="soundLabel" class="text-slate-200 text-xs">Sound</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Mobile Container -->
+  <main class="relative z-20 w-full max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-4 py-3">
+
+    <!-- ============================================== -->
+    <!-- SCREEN 1: UNWRAPPING / MYSTERY BOX STAGE      -->
+    <!-- ============================================== -->
+    <section id="boxStage" class="w-full flex flex-col items-center text-center transition-all duration-500">
+      
+      <!-- Festive Header Pill -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-pink-500/20 via-purple-500/20 to-amber-500/20 border border-amber-400/40 text-amber-200 text-xs font-bold uppercase tracking-widest shadow-lg shadow-purple-950/40 mb-3 animate-pulse">
+        <span>✨</span> Sivaranjan's Treat Vault <span>✨</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="font-festive text-3xl sm:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-amber-200 via-pink-200 to-amber-400 bg-clip-text text-transparent leading-tight mb-2">
+        A Small Present<br><span class="text-white drop-shadow-[0_4px_16px_rgba(234,179,8,0.3)]">From Sivaranjan 🎁</span>
+      </h1>
+
+      <!-- Description / Teaser -->
+      <p class="text-slate-300 text-sm max-w-xs mx-auto leading-relaxed mb-6 font-normal">
+        You demanded chocolates and treats for my birthday? Here is your VIP gift box! Tap the parcel to reveal what you got! 🍫🎂
+      </p>
+
+      <!-- Interactive 3D Gift Box Area -->
+      <div class="relative w-72 h-72 flex items-center justify-center my-2 cursor-pointer group" onclick="handleBoxClick()">
+        
+        <!-- Glowing Ambient Backlight -->
+        <div class="absolute inset-0 bg-gradient-to-tr from-amber-500/30 via-pink-500/20 to-purple-600/30 rounded-full blur-2xl glow-pulse pointer-events-none"></div>
+
+        <!-- Sunburst Rays (Hidden initially, triggered on unwrap) -->
+        <div id="sunburstRays" class="absolute inset-0 opacity-0 transition-opacity duration-700 pointer-events-none sunburst-spin">
+          <svg viewBox="0 0 200 200" class="w-full h-full text-amber-400/30 fill-current">
+            <path d="M100 0 L108 85 L185 35 L120 95 L200 100 L120 105 L185 165 L108 115 L100 200 L92 115 L15 165 L80 105 L0 100 L80 95 L15 35 L92 85 Z"/>
+          </svg>
+        </div>
+
+        <!-- The Gift Box Container with float effect -->
+        <div id="giftBoxContainer" class="relative z-10 gift-idle-wobble flex flex-col items-center justify-center transform transition duration-300 group-active:scale-95">
+          
+          <!-- Box Top Ribbon Bow -->
+          <div id="boxBow" class="relative z-20 -mb-3 transition-transform duration-500">
+            <div class="flex items-center justify-center">
+              <!-- Left Loop -->
+              <div class="w-10 h-8 border-4 border-amber-300 bg-gradient-to-bl from-amber-200 to-amber-500 rounded-[50%_50%_0%_50%] transform -rotate-25 shadow-md"></div>
+              <!-- Center Knot -->
+              <div class="w-7 h-7 bg-amber-400 rounded-full border-2 border-amber-100 shadow-md z-30 flex items-center justify-center">
+                <span class="w-2.5 h-2.5 bg-amber-200 rounded-full"></span>
+              </div>
+              <!-- Right Loop -->
+              <div class="w-10 h-8 border-4 border-amber-300 bg-gradient-to-br from-amber-200 to-amber-500 rounded-[50%_50%_50%_0%] transform rotate-25 shadow-md"></div>
+            </div>
+          </div>
+
+          <!-- Box Lid -->
+          <div id="boxLid" class="w-44 h-12 bg-gradient-to-r from-red-600 via-rose-500 to-red-700 rounded-xl shadow-2xl relative z-10 border-t-2 border-rose-300 flex items-center justify-center transition-all duration-500">
+            <!-- Lid Ribbon -->
+            <div class="w-8 h-full bg-gradient-to-b from-amber-300 via-amber-400 to-amber-500 shadow-sm border-x border-amber-200"></div>
+          </div>
+
+          <!-- Box Body -->
+          <div id="boxBase" class="w-40 h-36 bg-gradient-to-b from-red-700 via-rose-800 to-red-950 rounded-b-2xl shadow-[0_20px_45px_rgba(0,0,0,0.6)] relative overflow-hidden flex justify-center border-b border-red-900 transition-all duration-500">
+            <!-- Vertical Ribbon -->
+            <div class="w-8 h-full bg-gradient-to-b from-amber-400 to-amber-500 border-x border-amber-300 shadow-md"></div>
+            <!-- Horizontal Ribbon -->
+            <div class="absolute top-1/2 -translate-y-1/2 w-full h-8 bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 border-y border-amber-200 shadow-md"></div>
+            
+            <!-- Shimmer gloss overlay -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent pointer-events-none"></div>
+
+            <!-- Dangling Gift Tag -->
+            <div class="absolute top-6 left-3 bg-amber-100 text-rose-900 text-[10px] font-extrabold px-2.5 py-1 rounded shadow-lg transform -rotate-12 border border-amber-300 flex items-center gap-1 z-20">
+              <span>🏷️</span> For My Dear Friend
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Action Indicator Button -->
+      <button onclick="handleBoxClick()" class="mt-4 px-8 py-3.5 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-yellow-500 text-slate-950 font-black text-sm tracking-wider uppercase shadow-[0_0_25px_rgba(245,158,11,0.5)] active:scale-95 transition transform flex items-center gap-2.5 border border-amber-200">
+        <i data-lucide="sparkles" class="w-4 h-4 text-slate-900"></i>
+        <span>Tap To Unwrap Treat</span>
+        <i data-lucide="gift" class="w-4 h-4 text-slate-900"></i>
+      </button>
+
+      <p class="text-xs text-slate-400 mt-3 font-medium">
+        👆 Guaranteed real chocolate vibes & zero calories!
+      </p>
+
+    </section>
+
+
+    <!-- ============================================== -->
+    <!-- SCREEN 2: TREAT REVEAL STAGE                  -->
+    <!-- ============================================== -->
+    <section id="treatStage" class="hidden w-full flex flex-col items-center transition-all duration-500 animate-fadeIn">
+
+      <!-- Celebration Header -->
+      <div class="flex items-center gap-1.5 text-xs font-bold tracking-wider text-amber-300 uppercase mb-2">
+        <i data-lucide="party-popper" class="w-4 h-4 text-pink-400"></i>
+        <span>Treats Unlocked! Happy Birthday To Me!</span>
+        <i data-lucide="party-popper" class="w-4 h-4 text-pink-400"></i>
+      </div>
+
+      <h2 id="treatTitle" class="font-festive text-2xl sm:text-3xl font-extrabold text-center bg-gradient-to-r from-amber-200 via-pink-200 to-amber-300 bg-clip-text text-transparent px-2 leading-tight mb-3">
+        Belgian Truffle Cake & Gold Ferrero
+      </h2>
+
+      <!-- Main Visual Duo Card (Cake + Chocolate) -->
+      <div class="w-full bg-gradient-to-b from-white/15 to-white/5 backdrop-blur-xl border border-white/20 rounded-3xl p-3.5 shadow-[0_15px_35px_rgba(0,0,0,0.5)] mb-4">
+        
+        <!-- Two-image grid -->
+        <div class="grid grid-cols-2 gap-2.5">
+          
+          <!-- Cake Item -->
+          <div class="relative group rounded-2xl overflow-hidden bg-slate-900/60 border border-white/10 aspect-square">
+            <img id="cakeImage" src="" alt="Cake Treat" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/400x400/2A1608/FFD700?text=Cake+Delicious'">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
+            <div class="absolute bottom-2 left-2 right-2">
+              <span class="text-[10px] font-bold text-amber-300 bg-black/70 px-2 py-0.5 rounded-full inline-block backdrop-blur-sm mb-0.5">
+                🍰 Cake Slice
+              </span>
+              <p id="cakeNameText" class="text-xs font-bold text-white truncate drop-shadow">Triple Belgian Truffle</p>
+            </div>
+          </div>
+
+          <!-- Chocolate Item -->
+          <div class="relative group rounded-2xl overflow-hidden bg-slate-900/60 border border-white/10 aspect-square">
+            <img id="chocImage" src="" alt="Chocolate Treat" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/400x400/1D0C1F/FFD700?text=Chocolate+Treat'">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
+            <div class="absolute bottom-2 left-2 right-2">
+              <span class="text-[10px] font-bold text-pink-300 bg-black/70 px-2 py-0.5 rounded-full inline-block backdrop-blur-sm mb-0.5">
+                🍫 Chocolate Pick
+              </span>
+              <p id="chocNameText" class="text-xs font-bold text-white truncate drop-shadow">Ferrero Rocher Gold</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Flavor Notes -->
+        <p id="treatDescription" class="text-xs text-slate-300 text-center mt-3 px-2 leading-relaxed">
+          Intensely rich dark chocolate sponge drizzled with warm hazelnut ganache.
+        </p>
+
+        <!-- Zero-Calorie Nutrition Badges -->
+        <div class="grid grid-cols-3 gap-2 mt-3 pt-3 border-t border-white/10 text-center">
+          <div class="bg-black/30 rounded-xl p-1.5 border border-white/5">
+            <div class="text-[10px] text-slate-400 font-semibold">Calories</div>
+            <div class="text-xs font-black text-emerald-400">0 kcal 🍃</div>
+            <div class="text-[9px] text-slate-400">Guilt-Free</div>
+          </div>
+          <div class="bg-black/30 rounded-xl p-1.5 border border-white/5">
+            <div class="text-[10px] text-slate-400 font-semibold">Sweetness</div>
+            <div class="text-xs font-black text-amber-300">100% 🍯</div>
+            <div class="text-[9px] text-slate-400">Pure Joy</div>
+          </div>
+          <div class="bg-black/30 rounded-xl p-1.5 border border-white/5">
+            <div class="text-[10px] text-slate-400 font-semibold">Friendship</div>
+            <div class="text-xs font-black text-pink-400">+1000 XP 💕</div>
+            <div class="text-[9px] text-slate-400">Blessed</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sivaranjan's Official Birthday Voucher -->
+      <div class="w-full bg-gradient-to-r from-amber-950/50 via-purple-950/60 to-amber-950/50 border-2 border-dashed border-amber-400/50 rounded-2xl p-3.5 relative overflow-hidden shadow-lg mb-4">
+        
+        <div class="absolute -right-8 -top-8 w-24 h-24 bg-amber-400/10 rounded-full blur-xl pointer-events-none"></div>
+
+        <div class="flex items-start justify-between">
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-amber-400 text-sm">🎟️</span>
+              <span class="text-[11px] font-extrabold uppercase tracking-wider text-amber-300">
+                Official Birthday Treat Voucher
+              </span>
+            </div>
+            <p class="text-xs text-slate-200 font-semibold mt-1">
+              "Redeemable with a warm birthday hug or a sweet wish!"
+            </p>
+          </div>
+          <div class="border border-amber-400/60 bg-amber-400/20 text-amber-200 text-[9px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wider">
+            Verified ✔️
+          </div>
+        </div>
+
+        <div class="mt-2.5 pt-2 border-t border-amber-400/20 flex items-center justify-between text-[10px] text-slate-300 font-medium">
+          <span>Voucher ID: <strong id="voucherCode" class="text-amber-300">SIVA-BDAY-772</strong></span>
+          <span class="italic text-pink-300">Signed with ❤️ by Sivaranjan</span>
+        </div>
+
+      </div>
+
+      <!-- Action Buttons Grid -->
+      <div class="w-full space-y-2.5">
+
+        <!-- 1. Send Birthday Wishes to Sivaranjan on WhatsApp -->
+        <a id="whatsappBtn" href="#" target="_blank" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 active:scale-[0.98] transition font-bold text-white text-sm shadow-[0_4px_18px_rgba(16,185,129,0.35)] flex items-center justify-center gap-2">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+          </svg>
+          <span>Send Birthday Wishes on WhatsApp</span>
+        </a>
+
+        <!-- 2. Dual Action: Open Another Gift + Copy Card -->
+        <div class="grid grid-cols-2 gap-2">
+          
+          <button onclick="spinAnotherGift()" class="py-3 px-3 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 active:scale-95 transition text-slate-950 font-extrabold text-xs flex items-center justify-center gap-1.5 shadow-md">
+            <i data-lucide="sparkles" class="w-4 h-4"></i>
+            <span>Open Another 🎁</span>
+          </button>
+
+          <button onclick="copyTreatDetails()" class="py-3 px-3 rounded-xl bg-white/10 active:bg-white/20 border border-white/20 transition text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-md">
+            <i data-lucide="copy" class="w-4 h-4 text-amber-300"></i>
+            <span>Copy Treat Card</span>
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Sticky Footer Signature -->
+  <footer class="relative z-20 w-full max-w-md mx-auto text-center py-4 px-4">
+    <p class="text-xs text-slate-400 font-medium">
+      Crafted with lots of ❤️ & sugar for Sivaranjan's Birthday 🎂
+    </p>
+  </footer>
+
+  <!-- Custom Floating Toast Notification -->
+  <div id="toastNotification" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none w-[90%] max-w-sm">
+    <div class="bg-slate-900/95 backdrop-blur-md border border-amber-400/40 text-white px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-3">
+      <div class="w-8 h-8 rounded-full bg-amber-400/20 text-amber-300 flex items-center justify-center shrink-0">
+        <i data-lucide="check" class="w-4 h-4"></i>
+      </div>
+      <div class="text-xs">
+        <p class="font-bold text-amber-300" id="toastTitle">Copied to Clipboard!</p>
+        <p class="text-slate-300" id="toastMessage">Paste it in chat to wish Sivaranjan!</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================== -->
+  <!-- JAVASCRIPT LOGIC & WEB AUDIO SYNTHESIS         -->
+  <!-- ============================================== -->
+  <script>
+    // -------------------------------------------------------------
+    // 1. DESSERT & CHOCOLATE CATALOG (12 DELICIOUS PAIRINGS)
+    // -------------------------------------------------------------
+    const treatCatalog = [
+      {
+        title: "Belgian Dark Truffle & Golden Ferrero",
+        cakeName: "Triple Dark Truffle Slice",
+        cakeImg: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80",
+        chocName: "Ferrero Rocher Gold",
+        chocImg: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=700&q=80",
+        desc: "Layers of 70% dark Belgian fudge ganache paired with crunchy golden hazelnut spheres. The ultimate royal combo!"
+      },
+      {
+        title: "Red Velvet Dream & Hershey's Kisses",
+        cakeName: "Red Velvet Cream Cheese",
+        cakeImg: "https://images.unsplash.com/photo-1616541823729-00fe0aacd32c?auto=format&fit=crop&w=700&q=80",
+        chocName: "Hershey's Kisses Melts",
+        chocImg: "https://images.unsplash.com/photo-1548907040-4baa42d10919?auto=format&fit=crop&w=700&q=80",
+        desc: "Soft scarlet sponge with creamy whipped frosting topped with iconic chocolate teardrop kisses."
+      },
+      {
+        title: "Molten Lava Eruption & KitKat Crunch",
+        cakeName: "Warm Choco Lava Core",
+        cakeImg: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=80",
+        chocName: "Crispy KitKat Fingers",
+        chocImg: "https://images.unsplash.com/photo-1582293041079-7814c2f12063?auto=format&fit=crop&w=700&q=80",
+        desc: "Gooey chocolate flowing from the warm sponge core, accompanied by crispy chocolate wafer breaks!"
+      },
+      {
+        title: "Rainbow Funfetti & Cadbury Dairy Milk Silk",
+        cakeName: "Festive Confetti Cake",
+        cakeImg: "https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=700&q=80",
+        chocName: "Cadbury Dairy Milk Silk",
+        chocImg: "https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=700&q=80",
+        desc: "Vibrant birthday sprinkles explosion meets the velvet smoothness of melt-in-the-mouth Cadbury Silk."
+      },
+      {
+        title: "Salted Caramel Mocha & Snickers Bars",
+        cakeName: "Caramel Macchiato Cake",
+        cakeImg: "https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=700&q=80",
+        chocName: "Snickers Peanut Nugget",
+        chocImg: "https://images.unsplash.com/photo-1575224300306-1b8da36134ec?auto=format&fit=crop&w=700&q=80",
+        desc: "Rich espresso-infused sponge dripping in golden salted caramel and chewy roasted peanut chocolate."
+      },
+      {
+        title: "New York Berry Cheesecake & Swiss Lindt",
+        cakeName: "Strawberry NY Cheesecake",
+        cakeImg: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=700&q=80",
+        chocName: "Lindt Swiss Excellence",
+        chocImg: "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?auto=format&fit=crop&w=700&q=80",
+        desc: "Creamy baked artisan cheesecake on graham cracker crust with luxurious Swiss dark chocolate squares."
+      },
+      {
+        title: "Lotus Biscoff Torte & Kinder Bueno Wafers",
+        cakeName: "Caramelized Biscoff Slice",
+        cakeImg: "https://images.unsplash.com/photo-1534432182912-63863115e106?auto=format&fit=crop&w=700&q=80",
+        chocName: "Kinder Bueno Praline",
+        chocImg: "https://images.unsplash.com/photo-1621236378699-8597fab4a1de?auto=format&fit=crop&w=700&q=80",
+        desc: "Crunchy speculoos cookie butter spread inside tender sponge with airy hazelnut cream wafer bars."
+      },
+      {
+        title: "Death By Chocolate & Nutella Swirl Brownie",
+        cakeName: "Death By Choco Supreme",
+        cakeImg: "https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=700&q=80",
+        chocName: "Fudgy Nutella Brownie",
+        chocImg: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=700&q=80",
+        desc: "Five luscious textures of cocoa overload! Dark mousse, chocolate chips, and warm Nutella fudge."
+      },
+      {
+        title: "Hazelnut Praline Gateau & Toblerone Peaks",
+        cakeName: "Piedmont Hazelnut Gateau",
+        cakeImg: "https://images.unsplash.com/photo-1508737804141-4c3b688e2546?auto=format&fit=crop&w=700&q=80",
+        chocName: "Toblerone Honey & Almond",
+        chocImg: "https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=700&q=80",
+        desc: "Toasted hazelnut crunch with praline buttercream and iconic triangular honey-almond nougat."
+      },
+      {
+        title: "Blueberry Bliss & Crispy M&M Blast",
+        cakeName: "Wild Blueberry Cheesecake",
+        cakeImg: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=700&q=80",
+        chocName: "Crispy M&M Color Gems",
+        chocImg: "https://images.unsplash.com/photo-1581798459219-318e76aecc7b?auto=format&fit=crop&w=700&q=80",
+        desc: "Zesty mountain blueberry swirl paired with colorful crisp milk chocolate candy jewels!"
+      },
+      {
+        title: "Black Forest Classic & Dark Cherry Truffles",
+        cakeName: "Traditional Black Forest",
+        cakeImg: "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?auto=format&fit=crop&w=700&q=80",
+        chocName: "Maraschino Dark Truffles",
+        chocImg: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=700&q=80",
+        desc: "Classic chocolate sponge with sweet-tart cherries, fresh snow whipped cream, and chocolate curls."
+      },
+      {
+        title: "White Berry Pavlova & Raffaello Coconut Balls",
+        cakeName: "Berry Meringue Pavlova",
+        cakeImg: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=700&q=80",
+        chocName: "Ferrero Raffaello Spheres",
+        chocImg: "https://images.unsplash.com/photo-1526081347589-7fa3cb41b4b2?auto=format&fit=crop&w=700&q=80",
+        desc: "Crispy outer shell, marshmallow center, and delicate white chocolate almond coconut delicacies."
+      }
+    ];
+
+    let currentTreat = null;
+    let isUnwrapping = false;
+    let soundEnabled = true;
+
+    // -------------------------------------------------------------
+    // 2. SYNTHESIZED SOUND SYSTEM (WEB AUDIO API - ZERO MP3 LINKS)
+    // -------------------------------------------------------------
+    let audioCtx = null;
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (AudioContext) {
+          audioCtx = new AudioContext();
+        }
+      }
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    // Toggle Sound Button
+    function toggleSound() {
+      soundEnabled = !soundEnabled;
+      const soundIcon = document.getElementById('soundIcon');
+      const soundLabel = document.getElementById('soundLabel');
+
+      if (soundEnabled) {
+        soundIcon.setAttribute('data-lucide', 'volume-2');
+        soundIcon.className = "w-4 h-4 text-emerald-400";
+        soundLabel.innerText = "Sound ON";
+        soundLabel.className = "text-slate-200 text-xs";
+        playPopSound();
+      } else {
+        soundIcon.setAttribute('data-lucide', 'volume-x');
+        soundIcon.className = "w-4 h-4 text-rose-400";
+        soundLabel.innerText = "Muted";
+        soundLabel.className = "text-rose-300 text-xs";
+      }
+      lucide.createIcons();
+    }
+
+    // Sound: Gentle Pop
+    function playPopSound() {
+      if (!soundEnabled) return;
+      const ctx = getAudioContext();
+      if (!ctx) return;
+
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(550, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(140, ctx.currentTime + 0.08);
+
+      gain.gain.setValueAtTime(0.25, ctx.currentTime);
+      gain.gain.linearRampToValueAtTime(0.01, ctx.currentTime + 0.08);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start();
+      osc.stop(ctx.currentTime + 0.09);
+    }
+
+    // Sound: Boing / Wobble
+    function playBoingSound() {
+      if (!soundEnabled) return;
+      const ctx = getAudioContext();
+      if (!ctx) return;
+
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(240, ctx.currentTime);
+      osc.frequency.linearRampToValueAtTime(480, ctx.currentTime + 0.12);
+      osc.frequency.exponentialRampToValueAtTime(180, ctx.currentTime + 0.35);
+
+      gain.gain.setValueAtTime(0.3, ctx.currentTime);
+      gain.gain.linearRampToValueAtTime(0.01, ctx.currentTime + 0.35);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start();
+      osc.stop(ctx.currentTime + 0.36);
+    }
+
+    // Sound: Grand Birthday Fanfare & Unwrapping Chime
+    function playCelebrationChimes() {
+      if (!soundEnabled) return;
+      const ctx = getAudioContext();
+      if (!ctx) return;
+
+      // Sparkling Arpeggio Notes (C5, E5, G5, B5, C6, E6, G6)
+      const frequencies = [523.25, 659.25, 783.99, 987.77, 1046.50, 1318.51, 1567.98];
+      
+      frequencies.forEach((freq, index) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, ctx.currentTime + (index * 0.07));
+
+        gain.gain.setValueAtTime(0.0, ctx.currentTime + (index * 0.07));
+        gain.gain.linearRampToValueAtTime(0.2, ctx.currentTime + (index * 0.07) + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (index * 0.07) + 0.65);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(ctx.currentTime + (index * 0.07));
+        osc.stop(ctx.currentTime + (index * 0.07) + 0.7);
+      });
+
+      // Cheerful Brass/Horn Finish
+      setTimeout(() => {
+        if (!soundEnabled) return;
+        const chordFreqs = [523.25, 659.25, 783.99, 1046.50];
+        chordFreqs.forEach(freq => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(freq, ctx.currentTime);
+
+          gain.gain.setValueAtTime(0.12, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.9);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+
+          osc.start();
+          osc.stop(ctx.currentTime + 0.95);
+        });
+      }, 550);
+    }
+
+
+    // -------------------------------------------------------------
+    // 3. CONFETTI BURST SEQUENCES
+    // -------------------------------------------------------------
+    function fireFestiveConfetti() {
+      if (typeof confetti !== 'function') return;
+
+      // Burst 1: Center blast
+      confetti({
+        particleCount: 70,
+        spread: 80,
+        origin: { y: 0.6 },
+        colors: ['#F59E0B', '#EC4899', '#8B5CF6', '#10B981', '#F43F5E', '#FFFFFF']
+      });
+
+      // Burst 2: Side cannons after slight delay
+      setTimeout(() => {
+        confetti({
+          particleCount: 50,
+          angle: 60,
+          spread: 60,
+          origin: { x: 0, y: 0.7 },
+          colors: ['#FFD700', '#FF69B4', '#00FFFF', '#FF4500']
+        });
+        confetti({
+          particleCount: 50,
+          angle: 120,
+          spread: 60,
+          origin: { x: 1, y: 0.7 },
+          colors: ['#FFD700', '#FF69B4', '#00FFFF', '#FF4500']
+        });
+      }, 250);
+
+      // Burst 3: Falling gold stars/dots
+      setTimeout(() => {
+        confetti({
+          particleCount: 40,
+          spread: 120,
+          origin: { y: 0.4 },
+          scalar: 1.2,
+          ticks: 200,
+          colors: ['#FCD34D', '#F472B6', '#A78BFA']
+        });
+      }, 500);
+    }
+
+
+    // -------------------------------------------------------------
+    // 4. GIFT UNWRAPPING INTERACTION
+    // -------------------------------------------------------------
+    function handleBoxClick() {
+      if (isUnwrapping) return;
+      isUnwrapping = true;
+
+      // Haptic feedback for mobile
+      if (navigator.vibrate) {
+        navigator.vibrate([40, 60, 100]);
+      }
+
+      playBoingSound();
+
+      const boxContainer = document.getElementById('giftBoxContainer');
+      const boxLid = document.getElementById('boxLid');
+      const boxBow = document.getElementById('boxBow');
+      const sunburst = document.getElementById('sunburstRays');
+
+      // 1. Shake the box
+      boxContainer.classList.remove('gift-idle-wobble');
+      boxContainer.classList.add('gift-shake');
+
+      // 2. Open lid and burst
+      setTimeout(() => {
+        playCelebrationChimes();
+        fireFestiveConfetti();
+
+        // Reveal glowing sunburst rays
+        sunburst.style.opacity = '1';
+
+        // Animate lid flying off
+        boxLid.style.transform = 'translateY(-120px) rotate(-22deg) scale(0.9)';
+        boxBow.style.transform = 'translateY(-130px) rotate(-35deg) scale(0.9)';
+        boxLid.style.opacity = '0.7';
+        boxBow.style.opacity = '0.7';
+
+        // 3. Transition to treat reveal
+        setTimeout(() => {
+          selectAndRenderTreat();
+          document.getElementById('boxStage').classList.add('hidden');
+          const treatStage = document.getElementById('treatStage');
+          treatStage.classList.remove('hidden');
+
+          // Scroll smoothly to top
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+
+          isUnwrapping = false;
+        }, 900);
+
+      }, 650);
+    }
+
+
+    // -------------------------------------------------------------
+    // 5. TREAT RENDERING & RANDOMIZATION
+    // -------------------------------------------------------------
+    function selectAndRenderTreat() {
+      // Pick random treat from catalog
+      const randomIndex = Math.floor(Math.random() * treatCatalog.length);
+      currentTreat = treatCatalog[randomIndex];
+
+      // Update Texts
+      document.getElementById('treatTitle').innerText = currentTreat.title;
+      document.getElementById('cakeNameText').innerText = currentTreat.cakeName;
+      document.getElementById('chocNameText').innerText = currentTreat.chocName;
+      document.getElementById('treatDescription').innerText = currentTreat.desc;
+
+      // Update Images
+      document.getElementById('cakeImage').src = currentTreat.cakeImg;
+      document.getElementById('chocImage').src = currentTreat.chocImg;
+
+      // Generate randomized voucher code
+      const randomCode = Math.floor(100 + Math.random() * 900);
+      document.getElementById('voucherCode').innerText = `SIVA-BDAY-${randomCode}`;
+
+      // Update WhatsApp share URL
+      updateShareLinks(currentTreat);
+
+      lucide.createIcons();
+    }
+
+    function updateShareLinks(treat) {
+      const whatsappBtn = document.getElementById('whatsappBtn');
+      const message = `Hey Sivaranjan! 🎂 Happy Birthday! 🎉🥳%0A%0AI just unwrapped my special present from you and got the delicious *${treat.title}* (🍰 ${treat.cakeName} + 🍫 ${treat.chocName})! 🎁✨%0A%0AWishing you a super awesome year filled with endless happiness, good health, and sweet moments! Have the happiest birthday! 🎈❤️`;
+      
+      whatsappBtn.href = `https://wa.me/?text=${message}`;
+    }
+
+    // Re-spin another treat combo
+    function spinAnotherGift() {
+      playPopSound();
+      fireFestiveConfetti();
+
+      // Pick a different treat
+      let nextTreat;
+      do {
+        const nextIndex = Math.floor(Math.random() * treatCatalog.length);
+        nextTreat = treatCatalog[nextIndex];
+      } while (nextTreat.title === currentTreat?.title && treatCatalog.length > 1);
+
+      currentTreat = nextTreat;
+
+      // Animate card re-render
+      const treatStage = document.getElementById('treatStage');
+      treatStage.classList.add('opacity-40', 'scale-95');
+
+      setTimeout(() => {
+        document.getElementById('treatTitle').innerText = currentTreat.title;
+        document.getElementById('cakeNameText').innerText = currentTreat.cakeName;
+        document.getElementById('chocNameText').innerText = currentTreat.chocName;
+        document.getElementById('treatDescription').innerText = currentTreat.desc;
+        document.getElementById('cakeImage').src = currentTreat.cakeImg;
+        document.getElementById('chocImage').src = currentTreat.chocImg;
+
+        const randomCode = Math.floor(100 + Math.random() * 900);
+        document.getElementById('voucherCode').innerText = `SIVA-BDAY-${randomCode}`;
+
+        updateShareLinks(currentTreat);
+
+        treatStage.classList.remove('opacity-40', 'scale-95');
+        showToast("New Treat Unwrapped! 🎁", `You unlocked ${currentTreat.title}!`);
+      }, 250);
+    }
+
+
+    // -------------------------------------------------------------
+    // 6. CLIPBOARD & TOAST SYSTEM
+    // -------------------------------------------------------------
+    function copyTreatDetails() {
+      playPopSound();
+      
+      const treatName = currentTreat ? currentTreat.title : "Belgian Truffle & Gold Ferrero";
+      const cake = currentTreat ? currentTreat.cakeName : "Triple Dark Truffle";
+      const choc = currentTreat ? currentTreat.chocName : "Ferrero Rocher";
+
+      const cardText = `🎂 Sivaranjan's Birthday Treat Delivery! 🎁\nI just opened my special gift from Sivaranjan and received:\n🍰 Cake: ${cake}\n🍫 Chocolate: ${choc}\n✨ Stats: 0 kcal | 100% Sweetness | +1000 Friendship Points!\nHappy Birthday Sivaranjan! 🎉🥳`;
+
+      // Copy to clipboard using textarea fallback
+      const tempTextArea = document.createElement("textarea");
+      tempTextArea.value = cardText;
+      tempTextArea.style.position = "fixed";
+      tempTextArea.style.left = "-9999px";
+      document.body.appendChild(tempTextArea);
+      tempTextArea.select();
+
+      try {
+        document.execCommand('copy');
+        showToast("Treat Card Copied! 📋", "Send it to Sivaranjan to wish him a happy birthday!");
+      } catch (err) {
+        showToast("Unable to copy", "Please take a screenshot instead!");
+      }
+
+      document.body.removeChild(tempTextArea);
+    }
+
+    function showToast(title, message) {
+      const toast = document.getElementById('toastNotification');
+      document.getElementById('toastTitle').innerText = title;
+      document.getElementById('toastMessage').innerText = message;
+
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 3200);
+    }
+
+
+    // -------------------------------------------------------------
+    // 7. INITIALIZE ON LOAD
+    // -------------------------------------------------------------
+    window.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+
+      // Trigger a gentle welcome confetti burst after 1 second
+      setTimeout(() => {
+        if (typeof confetti === 'function') {
+          confetti({
+            particleCount: 25,
+            spread: 50,
+            origin: { y: 0.25 },
+            colors: ['#F59E0B', '#EC4899', '#8B5CF6']
+          });
+        }
+      }, 1000);
+    });
+  </script>
+</body>
+</html>

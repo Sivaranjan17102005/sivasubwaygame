@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Metro Rush 3D — Subway Runner</title>
+  
+  <!-- Arcade Fonts: Fredoka & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;800&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+
+  <!-- Import map allows running directly via any static HTTP server OR via Vite -->
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" crossorigin src="./assets/index-Bt3l3vMV.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-nSjA4dJR.css">
+</head>
+<body>
+  <!-- Fullscreen WebGL Viewport -->
+  <div id="game-container"></div>
+
+  <!-- Heads-Up Display (Overlayed at Top) -->
+  <header id="hud" aria-label="Game Stats HUD">
+    <div class="hud-top">
+      <div class="stat-pill score-pill">
+        <span class="label">SCORE</span>
+        <span id="score-val">000000</span>
+      </div>
+      <div class="stat-pill coin-pill">
+        <span class="coin-icon">🪙</span>
+        <span id="coin-val">0</span>
+      </div>
+      <div class="stat-pill speed-pill">
+        <span class="label">SPEED</span>
+        <span id="speed-val">1.0x</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Start Screen Overlay -->
+  <div id="start-overlay" class="overlay active">
+    <div class="modal-card">
+      <div class="badge">3D ENDLESS RUNNER</div>
+      <h1 class="game-title">METRO RUSH</h1>
+      <p class="subtitle">Dodge oncoming trains, leap barriers, and collect gold across three high-speed rail tracks.</p>
+      
+      <div class="controls-grid">
+        <div class="control-item">
+          <div class="key-combo"><kbd>A</kbd> <kbd>D</kbd> <span>or</span> <kbd>←</kbd> <kbd>→</kbd></div>
+          <span class="action-desc">Switch Lanes</span>
+        </div>
+        <div class="control-item">
+          <div class="key-combo"><kbd>W</kbd> / <kbd>Space</kbd> / <kbd>↑</kbd></div>
+          <span class="action-desc">Jump onto Trains</span>
+        </div>
+        <div class="control-item">
+          <div class="key-combo"><kbd>S</kbd> <span>or</span> <kbd>↓</kbd></div>
+          <span class="action-desc">Slide / Fast-Drop</span>
+        </div>
+        <div class="control-item">
+          <div class="key-combo"><span class="touch-icon">👆</span> <kbd>Swipe</kbd></div>
+          <span class="action-desc">Mobile Gestures</span>
+        </div>
+      </div>
+
+      <button id="start-btn" class="primary-btn" type="button">TAP OR PRESS SPACE TO RUN</button>
+
+      <div style="margin-top: 14px; text-align: center;">
+        <a href="./present.html" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: 'Fredoka', cursive, sans-serif; font-size: 0.95rem; font-weight: 600; color: #ffd166; text-decoration: none; padding: 8px 18px; border-radius: 9999px; background: rgba(255, 209, 102, 0.12); border: 1px solid rgba(255, 209, 102, 0.35); transition: all 0.2s ease;">
+          <span>🎁</span>
+          <span>A Special Present from Sivaranjan</span>
+          <span style="font-size: 0.8em; opacity: 0.85;">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Game Over Overlay -->
+  <div id="gameover-overlay" class="overlay">
+    <div class="modal-card gameover-card">
+      <div class="badge danger">WIPEOUT</div>
+      <h1 class="game-title danger">TRACK BLOCKED!</h1>
+      
+      <div class="results-grid">
+        <div class="result-box">
+          <span class="label">FINAL SCORE</span>
+          <span id="final-score" class="big-num">0</span>
+        </div>
+        <div class="result-box gold-box">
+          <span class="label">COINS</span>
+          <span id="final-coins" class="big-num gold">0</span>
+        </div>
+        <div class="result-box">
+          <span class="label">BEST SCORE</span>
+          <span id="best-score" class="big-num highlight">0</span>
+        </div>
+      </div>
+
+      <button id="restart-btn" class="primary-btn restart-btn" type="button">RUN AGAIN</button>
+    </div>
+  </div>
+
+</body>
+</html>
